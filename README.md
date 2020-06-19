@@ -1,13 +1,27 @@
 fslib
 =====
 
-Finite state transducer library. Minimalistic pure C implementation. This project is mostly inspired by OpenFST library (http://www.openfst.org) by Michael Riley and Mehriar Mohri. The main focus here is a performance and simplicity. 
+Finite state transducer library. Minimalist pure C implementation. This project is mostly inspired by OpenFST library (http://www.openfst.org) by Michael Riley and Mehriar Mohri. The main focus here is performance and simplicity. 
 
-The package could be used to construct n-gram language models and as a construction block for decoders in speech recognition and spelling correction. It could be used for the tasks of discrete optimization on sequences (e.g. levenstein distance).
+<img src="examples/lev.png" height="250" width="500">
 
-![levenstein](examples/lev.png)
+Setup
+-----
 
-Basic operations
+C99 compiler is required. Just run:
+
+```bash
+git clone https://github.com/c0stya/fslib.git
+cd fslib && make
+```
+
+To run compile and run tests:
+
+```bash
+make tests
+```
+
+Usage
 -----
 
 ### Compilation
@@ -60,7 +74,7 @@ Warning: a proper sorting of input/output arcs could be significantly increase t
 
 ### Shortest path
 
-Use *fsshort* command to get the the transducer with the shortest path:
+Use *fsshort* command to get the a transducer with the shortest path:
 
 ```bash
 fsshort automaton.t > shortest_path.t
@@ -70,7 +84,7 @@ fsshort automaton.t > shortest_path.t
 
 We could draw automaton using *fsdraw* command. To actually render it you need *dot* utility from the Graphviz package.  Make sure you have Graphviz (http://www.graphviz.org) package properly installed.
 
-To render a transducer to png file use the following:
+To render a transducer to a png file use the following:
 
 ```bash
 fsdraw automaton.t | dot -Tpng > automaton.png
